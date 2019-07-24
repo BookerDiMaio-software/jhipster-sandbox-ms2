@@ -1,1 +1,0 @@
-# jhipster-sandbox-ms2

@@ -1,0 +1,11 @@
+/Users/racheldicesare-bookerdimaio/Documents/jhipster/jhipster-sandbox/microservice2/src/test/java/com/mycompany/myapp/web/rest/errors/ExceptionTranslatorIT.java
+/Users/racheldicesare-bookerdimaio/Documents/jhipster/jhipster-sandbox/microservice2/src/test/java/com/mycompany/myapp/config/timezone/HibernateTimeZoneIT.java
+/Users/racheldicesare-bookerdimaio/Documents/jhipster/jhipster-sandbox/microservice2/src/test/java/com/mycompany/myapp/security/jwt/TokenProviderTest.java
+/Users/racheldicesare-bookerdimaio/Documents/jhipster/jhipster-sandbox/microservice2/src/test/java/com/mycompany/myapp/security/jwt/JWTFilterTest.java
+/Users/racheldicesare-bookerdimaio/Documents/jhipster/jhipster-sandbox/microservice2/src/test/java/com/mycompany/myapp/repository/timezone/DateTimeWrapper.java
+/Users/racheldicesare-bookerdimaio/Documents/jhipster/jhipster-sandbox/microservice2/src/test/java/com/mycompany/myapp/config/WebConfigurerTestController.java
+/Users/racheldicesare-bookerdimaio/Documents/jhipster/jhipster-sandbox/microservice2/src/test/java/com/mycompany/myapp/web/rest/TestUtil.java
+/Users/racheldicesare-bookerdimaio/Documents/jhipster/jhipster-sandbox/microservice2/src/test/java/com/mycompany/myapp/web/rest/errors/ExceptionTranslatorTestController.java
+/Users/racheldicesare-bookerdimaio/Documents/jhipster/jhipster-sandbox/microservice2/src/test/java/com/mycompany/myapp/config/WebConfigurerTest.java
+/Users/racheldicesare-bookerdimaio/Documents/jhipster/jhipster-sandbox/microservice2/src/test/java/com/mycompany/myapp/repository/timezone/DateTimeWrapperRepository.java
+/Users/racheldicesare-bookerdimaio/Documents/jhipster/jhipster-sandbox/microservice2/src/test/java/com/mycompany/myapp/security/SecurityUtilsUnitTest.java
