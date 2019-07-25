@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "microservice2",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "firstName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "1",
+            "fieldValidateRulesMaxlength": "200"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "1",
+            "fieldValidateRulesMaxlength": "200"
+        },
+        {
+            "fieldName": "salutation",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "1",
+            "fieldValidateRulesMaxlength": "200"
+        }
+    ],
+    "changelogDate": "20190724192914",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "hello",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "microservice2"
+}

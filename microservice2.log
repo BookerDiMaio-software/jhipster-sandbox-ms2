@@ -1,0 +1,161 @@
+2019-07-25 03:52:45.977  WARN 50670 --- [hz.microservice2.InvocationMonitorThread] c.h.s.i.o.impl.InvocationMonitor         : [127.0.0.1]:13782 [dev] [3.11.4] MonitorInvocationsTask delayed 39624197 ms
+2019-07-25 03:52:46.358  INFO 50670 --- [hz.microservice2.cached.thread-4] c.h.i.c.impl.ClusterHeartbeatManager     : [127.0.0.1]:13782 [dev] [3.11.4] System clock apparently jumped from 2019-07-24 16:52:17.725 to 2019-07-25 03:52:45.958 since last heartbeat (+39623233 ms)
+2019-07-25 03:52:46.232  WARN 50670 --- [Hikari housekeeper] com.zaxxer.hikari.pool.HikariPool        : Hikari - Thread starvation or clock leap detected (housekeeper delta=11h33s751ms).
+2019-07-25 03:52:46.474  WARN 50670 --- [hz.microservice2.InvocationMonitorThread] c.h.s.i.o.impl.InvocationMonitor         : [127.0.0.1]:13782 [dev] [3.11.4] BroadcastOperationControlTask delayed 39618730 ms
+2019-07-25 03:52:46.474  WARN 50670 --- [hz.microservice2.cached.thread-4] c.h.i.c.impl.ClusterHeartbeatManager     : [127.0.0.1]:13782 [dev] [3.11.4] Resetting heartbeat timestamps because of huge system clock jump! Clock-Jump: 39623233 ms, Heartbeat-Timeout: 60000 ms
+2019-07-25 03:52:46.491  WARN 50670 --- [DiscoveryClient-1] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204)
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:66)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+2019-07-25 03:52:46.492 ERROR 50670 --- [DiscoveryClient-CacheRefreshExecutor-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://admin:admin@localhost:8761/eureka/}
+
+com.sun.jersey.api.client.ClientHandlerException: java.net.SocketTimeoutException: Read timed out
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:187)
+	at com.sun.jersey.api.client.filter.GZIPContentEncodingFilter.handle(GZIPContentEncodingFilter.java:123)
+	at com.netflix.discovery.EurekaIdentityHeaderFilter.handle(EurekaIdentityHeaderFilter.java:27)
+	at com.sun.jersey.api.client.Client.handle(Client.java:652)
+	at com.sun.jersey.api.client.WebResource.handle(WebResource.java:682)
+	at com.sun.jersey.api.client.WebResource.access$200(WebResource.java:74)
+	at com.sun.jersey.api.client.WebResource$Builder.get(WebResource.java:509)
+	at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.getApplicationsInternal(AbstractJerseyEurekaHttpClient.java:194)
+	at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.getDelta(AbstractJerseyEurekaHttpClient.java:170)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.MetricsCollectingEurekaHttpClient.execute(MetricsCollectingEurekaHttpClient.java:73)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1085)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:967)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1479)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1446)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/java.net.SocketInputStream.socketRead0(Native Method)
+	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.fillBuffer(AbstractSessionInputBuffer.java:161)
+	at org.apache.http.impl.io.SocketInputBuffer.fillBuffer(SocketInputBuffer.java:82)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.readLine(AbstractSessionInputBuffer.java:276)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.AbstractHttpClientConnection.receiveResponseHeader(AbstractHttpClientConnection.java:294)
+	at org.apache.http.impl.conn.DefaultClientConnection.receiveResponseHeader(DefaultClientConnection.java:257)
+	at org.apache.http.impl.conn.AbstractClientConnAdapter.receiveResponseHeader(AbstractClientConnAdapter.java:230)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:679)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:481)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:118)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:173)
+	... 29 common frames omitted
+
+2019-07-25 03:52:46.820  WARN 50670 --- [DiscoveryClient-CacheRefreshExecutor-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: java.net.SocketTimeoutException: Read timed out
+2019-07-25 03:52:47.164 ERROR 50670 --- [DiscoveryClient-CacheRefreshExecutor-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://admin:admin@localhost:8761/eureka/}
+
+javax.ws.rs.WebApplicationException: com.fasterxml.jackson.core.JsonParseException: processing aborted
+ at [Source: (GZIPInputStream); line: 1, column: 18]
+	at com.netflix.discovery.provider.DiscoveryJerseyProvider.readFrom(DiscoveryJerseyProvider.java:110)
+	at com.sun.jersey.api.client.ClientResponse.getEntity(ClientResponse.java:634)
+	at com.sun.jersey.api.client.ClientResponse.getEntity(ClientResponse.java:586)
+	at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.getApplicationsInternal(AbstractJerseyEurekaHttpClient.java:198)
+	at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.getDelta(AbstractJerseyEurekaHttpClient.java:170)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.MetricsCollectingEurekaHttpClient.execute(MetricsCollectingEurekaHttpClient.java:73)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:118)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:79)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1085)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:967)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1479)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1446)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: com.fasterxml.jackson.core.JsonParseException: processing aborted
+ at [Source: (GZIPInputStream); line: 1, column: 18]
+	at com.netflix.discovery.converters.EurekaJacksonCodec$ApplicationsDeserializer.deserialize(EurekaJacksonCodec.java:789)
+	at com.netflix.discovery.converters.EurekaJacksonCodec$ApplicationsDeserializer.deserialize(EurekaJacksonCodec.java:775)
+	at com.fasterxml.jackson.databind.ObjectReader._unwrapAndDeserialize(ObjectReader.java:1703)
+	at com.fasterxml.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:1608)
+	at com.fasterxml.jackson.databind.ObjectReader.readValue(ObjectReader.java:1188)
+	at com.netflix.discovery.converters.EurekaJacksonCodec.readValue(EurekaJacksonCodec.java:197)
+	at com.netflix.discovery.converters.wrappers.CodecWrappers$LegacyJacksonJson.decode(CodecWrappers.java:314)
+	at com.netflix.discovery.provider.DiscoveryJerseyProvider.readFrom(DiscoveryJerseyProvider.java:103)
+	... 26 common frames omitted
+
+2019-07-25 03:52:47.165  WARN 50670 --- [DiscoveryClient-CacheRefreshExecutor-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: com.fasterxml.jackson.core.JsonParseException: processing aborted
+ at [Source: (GZIPInputStream); line: 1, column: 18]
+2019-07-25 03:52:47.165 ERROR 50670 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MICROSERVICE2/microservice2:7723a9f717a90ebe510eaa8100bceb3b - was unable to refresh its cache! status = Cannot execute request on any known server
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1085)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:967)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1479)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1446)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+2019-07-25 03:52:47.176  INFO 50670 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MICROSERVICE2/microservice2:7723a9f717a90ebe510eaa8100bceb3b - Re-registering apps/MICROSERVICE2
+2019-07-25 03:52:47.177  INFO 50670 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MICROSERVICE2/microservice2:7723a9f717a90ebe510eaa8100bceb3b: registering service...
+2019-07-25 03:52:47.269  INFO 50670 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MICROSERVICE2/microservice2:7723a9f717a90ebe510eaa8100bceb3b - registration status: 204
+2019-07-25 07:30:08.857  WARN 50670 --- [hz.microservice2.InvocationMonitorThread] c.h.s.i.o.impl.InvocationMonitor         : [127.0.0.1]:13782 [dev] [3.11.4] MonitorInvocationsTask delayed 13023475 ms
+2019-07-25 07:30:08.894  INFO 50670 --- [hz.microservice2.cached.thread-12] c.h.i.c.impl.ClusterHeartbeatManager     : [127.0.0.1]:13782 [dev] [3.11.4] System clock apparently jumped from 2019-07-25 03:53:01.334 to 2019-07-25 07:30:08.874 since last heartbeat (+13022540 ms)
+2019-07-25 07:30:08.899  WARN 50670 --- [hz.microservice2.cached.thread-12] c.h.i.c.impl.ClusterHeartbeatManager     : [127.0.0.1]:13782 [dev] [3.11.4] Resetting heartbeat timestamps because of huge system clock jump! Clock-Jump: 13022540 ms, Heartbeat-Timeout: 60000 ms
+2019-07-25 08:42:13.129  WARN 50670 --- [hz.microservice2.InvocationMonitorThread] c.h.s.i.o.impl.InvocationMonitor         : [127.0.0.1]:13782 [dev] [3.11.4] MonitorInvocationsTask delayed 4322960 ms
+2019-07-25 08:42:13.916  INFO 50670 --- [hz.microservice2.cached.thread-7] c.h.i.c.impl.ClusterHeartbeatManager     : [127.0.0.1]:13782 [dev] [3.11.4] System clock apparently jumped from 2019-07-25 07:30:08.874 to 2019-07-25 08:42:13.914 since last heartbeat (+4320040 ms)
+2019-07-25 08:42:13.917  WARN 50670 --- [hz.microservice2.cached.thread-7] c.h.i.c.impl.ClusterHeartbeatManager     : [127.0.0.1]:13782 [dev] [3.11.4] Resetting heartbeat timestamps because of huge system clock jump! Clock-Jump: 4320040 ms, Heartbeat-Timeout: 60000 ms
+2019-07-25 08:42:17.811  WARN 50670 --- [hz.microservice2.InvocationMonitorThread] c.h.s.i.o.impl.InvocationMonitor         : [127.0.0.1]:13782 [dev] [3.11.4] BroadcastOperationControlTask delayed 17341475 ms
+2019-07-25 08:42:17.957  WARN 50670 --- [Hikari housekeeper] com.zaxxer.hikari.pool.HikariPool        : Hikari - Thread starvation or clock leap detected (housekeeper delta=4h49m31s983ms).
+2019-07-25 08:46:16.742  INFO 50670 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-07-25 08:51:16.743  INFO 50670 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-07-25 08:56:16.744  INFO 50670 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-07-25 09:01:16.751  INFO 50670 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-07-25 09:06:16.756  INFO 50670 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-07-25 09:11:16.757  INFO 50670 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-07-25 09:16:16.758  INFO 50670 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-07-25 09:21:06.660  WARN 50670 --- [hz.microservice2.InvocationMonitorThread] c.h.s.i.o.impl.InvocationMonitor         : [127.0.0.1]:13782 [dev] [3.11.4] MonitorInvocationsTask delayed 114844 ms
+2019-07-25 09:21:07.047  WARN 50670 --- [hz.microservice2.cached.thread-10] c.h.i.c.impl.ClusterHeartbeatManager     : [127.0.0.1]:13782 [dev] [3.11.4] Resetting heartbeat timestamps because of huge system clock jump! Clock-Jump: 114241 ms, Heartbeat-Timeout: 60000 ms
+2019-07-25 09:21:12.056  WARN 50670 --- [hz.microservice2.InvocationMonitorThread] c.h.s.i.o.impl.InvocationMonitor         : [127.0.0.1]:13782 [dev] [3.11.4] BroadcastOperationControlTask delayed 114237 ms
+2019-07-25 09:21:12.427  WARN 50670 --- [Hikari housekeeper] com.zaxxer.hikari.pool.HikariPool        : Hikari - Thread starvation or clock leap detected (housekeeper delta=2m24s251ms).
+2019-07-25 09:23:11.009  INFO 50670 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
