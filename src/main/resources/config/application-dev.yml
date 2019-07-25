@@ -90,7 +90,7 @@ spring:
         enabled: true
 
 server:
-  port: 8081
+  port: 8082
 
 # ===================================================================
 # JHipster specific properties
@@ -126,7 +126,7 @@ jhipster:
         token-validity-in-seconds-for-remember-me: 2592000
   mail: # specific JHipster mail property, for standard properties see MailProperties
     from: microservice2@localhost
-    base-url: http://127.0.0.1:8081
+    base-url: http://127.0.0.1:8082
   metrics:
     logs: # Reports metrics in the logs
       enabled: false
