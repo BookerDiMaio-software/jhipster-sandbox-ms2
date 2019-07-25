@@ -9,8 +9,10 @@ com/mycompany/myapp/config/CacheConfiguration.class
 com/mycompany/myapp/domain/AbstractAuditingEntity.class
 com/mycompany/myapp/config/CloudDatabaseConfiguration.class
 com/mycompany/myapp/config/audit/AuditEventConverter.class
+com/mycompany/myapp/web/rest/HelloResource.class
 com/mycompany/myapp/domain/PersistentAuditEvent.class
 com/mycompany/myapp/ApplicationWebXml.class
+com/mycompany/myapp/domain/Hello_.class
 com/mycompany/myapp/config/DatabaseConfiguration.class
 com/mycompany/myapp/config/LocaleConfiguration.class
 com/mycompany/myapp/web/rest/errors/BadRequestAlertException.class
@@ -27,9 +29,11 @@ com/mycompany/myapp/config/Constants.class
 com/mycompany/myapp/web/rest/errors/FieldErrorVM.class
 com/mycompany/myapp/domain/AbstractAuditingEntity_.class
 com/mycompany/myapp/security/SpringSecurityAuditorAware.class
+com/mycompany/myapp/domain/Hello.class
 com/mycompany/myapp/config/DateTimeFormatConfiguration.class
 com/mycompany/myapp/config/SecurityConfiguration.class
 com/mycompany/myapp/security/jwt/JWTConfigurer.class
+com/mycompany/myapp/repository/HelloRepository.class
 com/mycompany/myapp/security/SecurityUtils.class
 com/mycompany/myapp/config/LoggingConfiguration.class
 com/mycompany/myapp/security/jwt/TokenProvider.class

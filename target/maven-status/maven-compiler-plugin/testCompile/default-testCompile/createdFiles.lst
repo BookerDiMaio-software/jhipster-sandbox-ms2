@@ -9,6 +9,7 @@ com/mycompany/myapp/repository/timezone/DateTimeWrapperRepository.class
 com/mycompany/myapp/repository/timezone/DateTimeWrapper.class
 com/mycompany/myapp/security/jwt/TokenProviderTest.class
 com/mycompany/myapp/web/rest/errors/ExceptionTranslatorTestController$TestResponseStatusException.class
+com/mycompany/myapp/web/rest/HelloResourceIT.class
 com/mycompany/myapp/config/WebConfigurerTestController.class
 com/mycompany/myapp/security/SecurityUtilsUnitTest.class
 com/mycompany/myapp/config/timezone/HibernateTimeZoneIT.class
